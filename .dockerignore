@@ -1,0 +1,27 @@
+# Sama seperti .gitignore
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.git/
+.gitignore
+README*.md
+PANDUAN.md
+SUMMARY.md
+*.png
+*.zip
+bert_model/
+distilbert_model/
+train_success_model.py
+visualize_dataset.py
+app.py
+app_success.py
+tmdb_5000_credits.csv

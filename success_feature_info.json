@@ -1,0 +1,11 @@
+{
+  "numerical_features": [
+    "budget",
+    "popularity",
+    "runtime",
+    "vote_average",
+    "vote_count"
+  ],
+  "best_model": "Random Forest",
+  "accuracy": 0.7445820433436533
+}

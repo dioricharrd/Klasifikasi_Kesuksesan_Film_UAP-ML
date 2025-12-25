@@ -1,0 +1,58 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Model files yang tidak dipakai
+bert_model.zip
+distilbert_model.zip
+logistic_model_pkl.zip
+bert_model/
+distilbert_model/
+model.safetensors
+config.json
+special_tokens_map.json
+tokenizer_config.json
+vocab.txt
+model_logistic.pkl
+tfidf_vectorizer.pkl
+
+# Dataset yang tidak dipakai untuk production
+tmdb_5000_credits.csv
+
+# Files untuk training saja
+train_success_model.py
+visualize_dataset.py
+film_success_analysis.png
+
+# Documentation files (optional, bisa di-keep)
+PANDUAN.md
+README.md
+README_MULTI_MODEL.md
+README_SUCCESS.md
+SUMMARY.md
+
+# Apps yang tidak dipakai
+app.py
+app_success.py
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

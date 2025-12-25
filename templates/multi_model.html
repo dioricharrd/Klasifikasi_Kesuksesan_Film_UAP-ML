@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 Prediksi Kesuksesan Film - AI Powered</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradient-shift 8s ease infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.8); }
+        }
+        
+        .glow-pulse {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 animate-gradient min-h-screen">
+    
+    <div class="container mx-auto px-4 py-8 max-w-7xl">
+        
+        <!-- Header -->
+        <div class="mb-8">
+            <div class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-3xl shadow-2xl overflow-hidden relative">
+                <div class="absolute inset-0 bg-black/20"></div>
+                <div class="relative z-10 p-12 text-center">
+                    <h1 class="text-5xl md:text-6xl font-black text-white mb-4 drop-shadow-lg">
+                        🎬 Prediksi Kesuksesan Film
+                    </h1>
+                    <p class="text-xl md:text-2xl text-white/90 font-semibold">
+                        Multi-Model AI Analysis • Logistic Regression • BERT • DistilBERT
+                    </p>
+                    <div class="mt-6 flex justify-center gap-4 flex-wrap">
+                        <span class="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-semibold">
+                            ⚡ 74.46% Accuracy
+                        </span>
+                        <span class="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-semibold">
+                            🎯 3,229 Films Analyzed
+                        </span>
+                        <span class="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-semibold">
+                            🤖 3 AI Models
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Input Section - Sticky Sidebar -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-2xl shadow-2xl p-8 sticky top-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-2xl">
+                            📝
+                        </div>
+                        <h2 class="text-2xl font-black text-gray-800">Input Parameter</h2>
+                    </div>
+                    
+                    <form id="predictionForm" class="space-y-6">
+                        <!-- Budget -->
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">
+                                💰 Budget Film (USD)
+                            </label>
+                            <input 
+                                type="number" 
+                                id="budget" 
+                                required 
+                                min="100000" 
+                                step="1000000" 
+                                value="50000000"
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:ring-4 focus:ring-indigo-200 transition-all outline-none font-semibold"
+                            >
+                            <p class="mt-2 text-xs text-gray-500 italic">Contoh: 50000000 ($50 juta)</p>
+                        </div>
+
+                        <!-- Rating -->
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">
+                                ⭐ Rating Prediksi (0-10)
+                            </label>
+                            <input 
+                                type="number" 
+                                id="rating" 
+                                required 
+                                min="0" 
+                                max="10" 
+                                step="0.1" 
+                                value="7.0"
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:ring-4 focus:ring-indigo-200 transition-all outline-none font-semibold"
+                            >
+                            <p class="mt-2 text-xs text-gray-500 italic">Rating yang diharapkan</p>
+                        </div>
+
+                        <!-- Genre -->
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">
+                                🎭 Genre
+                            </label>
+                            <select 
+                                id="genre" 
+                                required
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:ring-4 focus:ring-indigo-200 transition-all outline-none font-semibold appearance-none cursor-pointer bg-white"
+                            >
+                                <option value="Action">Action</option>
+                                <option value="Comedy">Comedy</option>
+                                <option value="Drama" selected>Drama</option>
+                                <option value="Horror">Horror</option>
+                                <option value="Romance">Romance</option>
+                                <option value="Science Fiction">Science Fiction</option>
+                                <option value="Thriller">Thriller</option>
+                                <option value="Fantasy">Fantasy</option>
+                                <option value="Adventure">Adventure</option>
+                                <option value="Action, Adventure">Action + Adventure</option>
+                                <option value="Science Fiction, Action">Sci-Fi + Action</option>
+                                <option value="Horror, Thriller">Horror + Thriller</option>
+                            </select>
+                            <p class="mt-2 text-xs text-gray-500 italic">Pilih genre utama film</p>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button 
+                            type="submit" 
+                            id="predictBtn"
+                            class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-black py-4 px-6 rounded-xl transition-all transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-2xl text-lg uppercase tracking-wide glow-pulse"
+                        >
+                            🚀 Prediksi Sekarang
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Output Section -->
+            <div class="lg:col-span-2">
+                
+                <!-- Loading State -->
+                <div id="loading" class="hidden">
+                    <div class="bg-white rounded-2xl shadow-2xl p-12 text-center">
+                        <div class="inline-block w-16 h-16 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin mb-6"></div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Menganalisis dengan 3 Model AI...</h3>
+                        <p class="text-gray-600 text-lg">Logistic Regression • BERT • DistilBERT</p>
+                    </div>
+                </div>
+
+                <!-- Error State -->
+                <div id="error" class="hidden">
+                    <div class="bg-red-50 border-l-4 border-red-500 rounded-xl p-6 shadow-lg">
+                        <div class="flex items-center gap-3">
+                            <span class="text-3xl">⚠️</span>
+                            <div>
+                                <h3 class="font-bold text-red-800 text-lg">Error</h3>
+                                <p id="errorMessage" class="text-red-600"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div id="results" class="hidden space-y-6">
+                    
+                    <!-- Input Summary -->
+                    <div class="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl p-6 border-l-4 border-purple-500 shadow-lg">
+                        <h4 class="text-lg font-black text-purple-800 mb-4 flex items-center gap-2">
+                            <span class="text-2xl">📊</span>
+                            Parameter Input
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <p class="text-xs font-semibold text-purple-600 uppercase">Budget</p>
+                                <p id="summaryBudget" class="text-lg font-bold text-gray-800"></p>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold text-purple-600 uppercase">Rating</p>
+                                <p id="summaryRating" class="text-lg font-bold text-gray-800"></p>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold text-purple-600 uppercase">Genre</p>
+                                <p id="summaryGenre" class="text-lg font-bold text-gray-800"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ensemble Result -->
+                    <div class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-2xl shadow-2xl overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black/10"></div>
+                        <div class="absolute top-0 right-0 text-9xl opacity-10">🏆</div>
+                        <div class="relative z-10 p-8">
+                            <h3 class="text-3xl font-black text-white mb-6 text-center uppercase tracking-wide drop-shadow-lg">
+                                🏆 Hasil Ensemble (3 Model)
+                            </h3>
+                            
+                            <div class="bg-white/20 backdrop-blur-lg rounded-xl p-8 mb-6 border-2 border-white/30">
+                                <div id="ensemblePrediction" class="text-4xl font-black text-white text-center mb-3 uppercase tracking-wide drop-shadow-lg"></div>
+                                <div id="ensembleProbability" class="text-6xl font-black text-white text-center drop-shadow-2xl"></div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-white/20 backdrop-blur-lg rounded-xl p-6 text-center border-2 border-white/30 hover:bg-white/30 transition-all">
+                                    <div id="voteSuccess" class="text-5xl font-black text-white mb-2 drop-shadow-lg"></div>
+                                    <div class="text-white/90 font-semibold">Model Prediksi Sukses</div>
+                                </div>
+                                <div class="bg-white/20 backdrop-blur-lg rounded-xl p-6 text-center border-2 border-white/30 hover:bg-white/30 transition-all">
+                                    <div id="voteFail" class="text-5xl font-black text-white mb-2 drop-shadow-lg"></div>
+                                    <div class="text-white/90 font-semibold">Model Prediksi Gagal</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Individual Models -->
+                    <div id="modelResults" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+
+                    <!-- Recommended Films -->
+                    <div class="bg-white rounded-2xl shadow-2xl p-8">
+                        <h3 class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 mb-6 flex items-center gap-3">
+                            <span class="text-3xl">🎯</span>
+                            Film Rekomendasi Serupa
+                        </h3>
+                        <div id="filmGrid" class="space-y-4"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Film Detail Modal -->
+    <div id="filmModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto animate-in">
+            <div class="sticky top-0 bg-gradient-to-r from-indigo-600 to-purple-600 p-6 flex items-center justify-between z-10">
+                <h3 class="text-2xl font-black text-white flex items-center gap-3">
+                    <span class="text-3xl">🎬</span>
+                    Detail Film
+                </h3>
+                <button onclick="closeFilmModal()" class="text-white hover:bg-white/20 rounded-lg p-2 transition-all">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="filmModalContent" class="p-8">
+                <div class="flex items-center justify-center py-12">
+                    <div class="w-12 h-12 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Film Modal Functions
+        function closeFilmModal() {
+            document.getElementById('filmModal').classList.add('hidden');
+            document.getElementById('filmModal').classList.remove('flex');
+        }
+
+        async function showFilmDetail(title) {
+            const modal = document.getElementById('filmModal');
+            const content = document.getElementById('filmModalContent');
+            
+            // Show modal with loading
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            content.innerHTML = `
+                <div class="flex items-center justify-center py-12">
+                    <div class="w-12 h-12 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+                </div>
+            `;
+            
+            try {
+                const response = await fetch(`/film/${encodeURIComponent(title)}`);
+                const film = await response.json();
+                
+                if (response.ok) {
+                    const isSuccess = film.success === 'Successful';
+                    const badgeColor = isSuccess 
+                        ? 'bg-gradient-to-r from-green-500 to-emerald-500' 
+                        : 'bg-gradient-to-r from-red-500 to-pink-500';
+                    
+                    // Convert numeric values to ensure they're numbers
+                    const roiValue = typeof film.roi === 'string' ? parseFloat(film.roi) : film.roi;
+                    const budgetValue = typeof film.budget === 'string' ? parseFloat(film.budget) : film.budget;
+                    const revenueValue = typeof film.revenue === 'string' ? parseFloat(film.revenue) : film.revenue;
+                    
+                    content.innerHTML = `
+                        <!-- Film Title & Status -->
+                        <div class="mb-6">
+                            <h2 class="text-3xl font-black text-gray-800 mb-3">${film.title}</h2>
+                            <div class="flex items-center gap-3 flex-wrap">
+                                <span class="${badgeColor} text-white px-4 py-2 rounded-full text-sm font-bold uppercase shadow-lg">
+                                    ${film.success}
+                                </span>
+                                ${film.release_date !== 'Unknown' ? `
+                                    <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold">
+                                        📅 ${film.release_date}
+                                    </span>
+                                ` : ''}
+                                ${film.runtime > 0 ? `
+                                    <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold">
+                                        ⏱️ ${film.runtime} min
+                                    </span>
+                                ` : ''}
+                                <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold">
+                                    ⭐ ${film.vote_average.toFixed(1)}/10
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Synopsis -->
+                        <div class="mb-6">
+                            <h4 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+                                <span class="text-2xl">📖</span>
+                                Sinopsis
+                            </h4>
+                            <p class="text-gray-700 leading-relaxed text-justify">${film.overview}</p>
+                        </div>
+
+                        <!-- Genres -->
+                        ${film.genres.length > 0 ? `
+                            <div class="mb-6">
+                                <h4 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+                                    <span class="text-2xl">🎭</span>
+                                    Genre
+                                </h4>
+                                <div class="flex flex-wrap gap-2">
+                                    ${film.genres.map(genre => `
+                                        <span class="bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-semibold">
+                                            ${genre}
+                                        </span>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        ` : ''}
+
+                        <!-- Financial Stats -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 text-center">
+                                <p class="text-xs font-bold text-blue-600 uppercase mb-1">Budget</p>
+                                <p class="text-lg font-black text-blue-900">$${(budgetValue / 1000000).toFixed(1)}M</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-4 text-center">
+                                <p class="text-xs font-bold text-green-600 uppercase mb-1">Revenue</p>
+                                <p class="text-lg font-black text-green-900">$${(revenueValue / 1000000).toFixed(1)}M</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4 text-center">
+                                <p class="text-xs font-bold text-purple-600 uppercase mb-1">ROI</p>
+                                <p class="text-lg font-black text-purple-900">${(roiValue + 1).toFixed(2)}x</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-4 text-center">
+                                <p class="text-xs font-bold text-orange-600 uppercase mb-1">Votes</p>
+                                <p class="text-lg font-black text-orange-900">${film.vote_count.toLocaleString()}</p>
+                            </div>
+                        </div>
+
+                        <!-- Success Analysis -->
+                        <div class="bg-gradient-to-r ${badgeColor} rounded-xl p-6 text-white">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-semibold opacity-90 mb-1">Return on Investment</p>
+                                    <p class="text-4xl font-black">${film.success_rate}</p>
+                                    <p class="text-sm opacity-75 mt-1">Revenue: ${(roiValue + 1).toFixed(1)}x Budget</p>
+                                </div>
+                                <div class="text-6xl opacity-20">
+                                    ${isSuccess ? '✅' : '❌'}
+                                </div>
+                            </div>
+                            <p class="mt-4 text-sm opacity-90">
+                                ${isSuccess 
+                                    ? `🎉 Film ini menghasilkan ${film.success_rate} dari investasi awal!` 
+                                    : '📊 Film ini belum mencapai target ROI > 1.0x'}
+                            </p>
+                        </div>
+
+                        <!-- Close Button -->
+                        <div class="mt-6">
+                            <button onclick="closeFilmModal()" class="w-full bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white font-bold py-3 rounded-xl transition-all">
+                                Tutup
+                            </button>
+                        </div>
+                    `;
+                } else {
+                    content.innerHTML = `
+                        <div class="text-center py-12">
+                            <span class="text-6xl mb-4 block">😕</span>
+                            <p class="text-gray-600 text-lg">Film tidak ditemukan</p>
+                            <button onclick="closeFilmModal()" class="mt-6 bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-lg transition-all">
+                                Tutup
+                            </button>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                content.innerHTML = `
+                    <div class="text-center py-12">
+                        <span class="text-6xl mb-4 block">⚠️</span>
+                        <p class="text-gray-600 text-lg">Terjadi kesalahan: ${error.message}</p>
+                        <button onclick="closeFilmModal()" class="mt-6 bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-lg transition-all">
+                            Tutup
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('filmModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeFilmModal();
+            }
+        });
+
+        document.getElementById('predictionForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const resultsDiv = document.getElementById('results');
+            const loadingDiv = document.getElementById('loading');
+            const errorDiv = document.getElementById('error');
+            const predictBtn = document.getElementById('predictBtn');
+
+            // Hide previous results
+            resultsDiv.classList.add('hidden');
+            errorDiv.classList.add('hidden');
+
+            // Get form data
+            const formData = {
+                budget: parseFloat(document.getElementById('budget').value),
+                rating: parseFloat(document.getElementById('rating').value),
+                genre: document.getElementById('genre').value
+            };
+
+            // Show loading
+            loadingDiv.classList.remove('hidden');
+            predictBtn.disabled = true;
+            predictBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Update input summary
+                    document.getElementById('summaryBudget').textContent = data.input_summary.budget;
+                    document.getElementById('summaryRating').textContent = data.input_summary.rating;
+                    document.getElementById('summaryGenre').textContent = data.input_summary.genre;
+
+                    // Update ensemble result
+                    const ensemblePred = data.ensemble.prediction;
+                    const isSuccess = ensemblePred === 'Successful';
+                    document.getElementById('ensemblePrediction').textContent = ensemblePred;
+                    document.getElementById('ensembleProbability').textContent = 
+                        data.ensemble.average_probability.toFixed(1) + '%';
+                    document.getElementById('voteSuccess').textContent = data.ensemble.votes.successful;
+                    document.getElementById('voteFail').textContent = data.ensemble.votes.not_successful;
+
+                    // Update individual model results
+                    const modelResultsDiv = document.getElementById('modelResults');
+                    modelResultsDiv.innerHTML = '';
+
+                    const modelIcons = ['📊', '🧠', '🤖'];
+                    const modelColors = [
+                        'from-blue-500 to-cyan-500',
+                        'from-purple-500 to-pink-500',
+                        'from-orange-500 to-red-500'
+                    ];
+
+                    data.models.forEach((model, index) => {
+                        const isModelSuccess = model.prediction === 'Successful';
+                        const bgGradient = isModelSuccess 
+                            ? 'from-green-500 to-emerald-500' 
+                            : 'from-red-500 to-pink-500';
+                        
+                        const card = document.createElement('div');
+                        card.className = 'bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all transform hover:-translate-y-2';
+                        card.innerHTML = `
+                            <div class="p-6">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-gradient-to-br ${modelColors[index]} rounded-lg flex items-center justify-center text-xl shadow-lg">
+                                        ${modelIcons[index]}
+                                    </div>
+                                    <h3 class="font-black text-gray-800 text-sm">${model.model}</h3>
+                                </div>
+                                <div class="bg-gradient-to-r ${bgGradient} rounded-lg p-4 text-white">
+                                    <div class="text-xl font-bold mb-1 uppercase text-center">${model.prediction}</div>
+                                    <div class="text-3xl font-black text-center">${model.success_probability.toFixed(1)}%</div>
+                                </div>
+                            </div>
+                        `;
+                        modelResultsDiv.appendChild(card);
+                    });
+
+                    // Update recommended films
+                    const filmGrid = document.getElementById('filmGrid');
+                    filmGrid.innerHTML = '';
+
+                    if (data.recommended_films.length > 0) {
+                        data.recommended_films.forEach(film => {
+                            const isFilmSuccess = film.success === 'Successful';
+                            const badgeColor = isFilmSuccess 
+                                ? 'bg-gradient-to-r from-green-500 to-emerald-500' 
+                                : 'bg-gradient-to-r from-red-500 to-pink-500';
+                            
+                            // Convert roi to number if it's a string
+                            const roiValue = typeof film.roi === 'string' ? parseFloat(film.roi) : film.roi;
+                            
+                            const filmItem = document.createElement('div');
+                            filmItem.className = 'bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-6 border-l-4 border-indigo-500 hover:shadow-lg transition-all hover:translate-x-2 cursor-pointer';
+                            filmItem.onclick = () => showFilmDetail(film.title);
+                            filmItem.innerHTML = `
+                                <div class="flex items-start justify-between mb-4">
+                                    <h4 class="text-lg font-black text-gray-800 flex items-center gap-2 hover:text-indigo-600 transition-colors">
+                                        <span class="text-2xl">🎬</span>
+                                        ${film.title}
+                                    </h4>
+                                    <span class="${badgeColor} text-white px-3 py-1 rounded-full text-xs font-bold uppercase shadow-lg">
+                                        ${film.success}
+                                    </span>
+                                </div>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                                    <div>
+                                        <p class="text-xs font-bold text-indigo-600 uppercase">Budget</p>
+                                        <p class="font-bold text-gray-800">${film.budget}</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-indigo-600 uppercase">Revenue</p>
+                                        <p class="font-bold text-gray-800">${film.revenue}</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-indigo-600 uppercase">ROI</p>
+                                        <p class="font-bold text-gray-800">${(roiValue + 1).toFixed(2)}x</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-indigo-600 uppercase">Rating</p>
+                                        <p class="font-bold text-gray-800">⭐ ${film.rating}</p>
+                                    </div>
+                                </div>
+                                <div class="mt-3 text-xs text-indigo-600 font-semibold">
+                                    💡 Klik untuk lihat detail lengkap
+                                </div>
+                            `;
+                            filmGrid.appendChild(filmItem);
+                        });
+                    } else {
+                        filmGrid.innerHTML = '<p class="text-gray-500 text-center py-8">Tidak ada film rekomendasi dengan kriteria yang sesuai.</p>';
+                    }
+
+                    // Show results with smooth scroll
+                    resultsDiv.classList.remove('hidden');
+                    setTimeout(() => {
+                        resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+
+                } else {
+                    document.getElementById('errorMessage').textContent = data.error || 'Terjadi kesalahan';
+                    errorDiv.classList.remove('hidden');
+                }
+            } catch (error) {
+                document.getElementById('errorMessage').textContent = 'Terjadi kesalahan: ' + error.message;
+                errorDiv.classList.remove('hidden');
+            } finally {
+                loadingDiv.classList.add('hidden');
+                predictBtn.disabled = false;
+                predictBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+        });
+    </script>
+</body>
+</html>
